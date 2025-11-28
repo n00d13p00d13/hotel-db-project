@@ -27,7 +27,8 @@ CREATE TABLE IF NOT EXISTS Room (
     R_ID INT AUTO_INCREMENT PRIMARY KEY,
     Number VARCHAR(10) NOT NULL UNIQUE,
     Floor INT NOT NULL,
-    Status ENUM('Available', 'Booked', 'Under Maintenance') NOT NULL,
+    --Status ENUM ('Available', 'Booked', 'Under Maintenance') NOT NULL,
+    Status VARCHAR(20) NOT NULL,
     RoomType_ID INT NOT NULL,
     FOREIGN KEY (RoomType_ID) REFERENCES RoomType(RoomType_ID)
 );
@@ -41,7 +42,8 @@ CREATE TABLE IF NOT EXISTS Booking (
     Check_Out_Date DATE NOT NULL,
     Booking_Date DATE NOT NULL,
     Meal_Plan VARCHAR(50),
-    Status ENUM('Confirmed', 'Cancelled', 'Pending') NOT NULL,
+    --Status ENUM('Confirmed', 'Cancelled', 'Pending') NOT NULL,
+    Status VARCHAR(20) NOT NULL,
     FOREIGN KEY (G_ID) REFERENCES Guest(G_ID),
     FOREIGN KEY (R_ID) REFERENCES Room(R_ID)
 );
@@ -52,7 +54,8 @@ CREATE TABLE IF NOT EXISTS Payment (
     B_ID INT NOT NULL,
     Amount DECIMAL(10,2) NOT NULL,
     Payment_Date DATE NOT NULL,
-    Payment_Method ENUM('Card', 'Cash', 'Online') NOT NULL,
+    --Payment_Method ENUM('Card', 'Cash', 'Online') NOT NULL,
+    Payment_Method VARCHAR(10),
     FOREIGN KEY (B_ID) REFERENCES Booking(B_ID)
 );
 SELECT * FROM payment;
