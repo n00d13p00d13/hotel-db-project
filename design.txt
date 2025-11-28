@@ -1,0 +1,11 @@
+intro to db/
+|
+|--app.py               - entry point of the program
+|
+|--database/
+|       database.db     - db file
+|       schema.sql      - create tables and db schema
+|       db_manager.py   - handle create, remove, update, delete operations
+|
+|--gui/
+        gui.py          - create gui and use db_manager operations
