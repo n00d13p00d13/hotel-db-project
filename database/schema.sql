@@ -3,10 +3,9 @@ CREATE TABLE Guest IF NOT EXISTS (
     F_name VARCHAR(20) NOT NULL,
     L_name VARCHAR(20) NOT NULL,
     Email VARCHAR(50) UNIQUE,
-    SSD VARCHAR(20),     -- National ID
+    SSD VARCHAR(20),
     Age INT
 );
--- AUTO_INCREMENT ده السطر القولتلكوا عليه بيزود تلقائي
 SELECT * FROM Guest;
 
 CREATE TABLE GuestPhones IF NOT EXISTS (
@@ -28,7 +27,6 @@ CREATE TABLE Room (
     R_ID INT AUTO_INCREMENT PRIMARY KEY,
     Number VARCHAR(10) NOT NULL UNIQUE,
     Floor INT NOT NULL,
-    -- Status VARCHAR(20),  -- Available, Booked, Under Maintenance
     Status ENUM('Available', 'Booked', 'Under Maintenance') NOT NULL,
     RoomType_ID INT NOT NULL,
     FOREIGN KEY (RoomType_ID) REFERENCES RoomType(RoomType_ID)
@@ -71,9 +69,6 @@ CREATE TABLE Staff IF NOT EXISTS (
 );
 SELECT * FROM staff;
 
---------------------------------
--- 7) Shift Table
---------------------------------
 CREATE TABLE Shift IF NOT EXISTS (
     Shift_ID INT AUTO_INCREMENT PRIMARY KEY,
     Staff_ID INT NOT NULL,
